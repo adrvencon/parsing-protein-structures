@@ -129,8 +129,3 @@ def report(info):
         print(f"  Chain {ch} | {len(seq)} aa")
         for i in range(0, len(seq), 60):
             print(f"    {seq[i:i+60]}")
-
-if __name__ == "__main__":
-    for pdb_id in ["1RBP", "1QRE", "1DGF"]:
-        data = parse_pdb(download_pdb(pdb_id), pdb_id)
-        report(data)
