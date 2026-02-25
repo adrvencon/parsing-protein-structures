@@ -26,7 +26,7 @@ Las tres estructuras utilizadas a lo largo de toda la práctica se descargaron d
 Todo el código está escrito en Python 3.x. Las estructuras se descargan automáticamente en tiempo de ejecución, no se requieren ficheros locales.
 
 ```bash
-pip install numpy # [PENDIENTE: actualizar con todas las dependencias]
+pip install -r requirements.txt # [PENDIENTE: actualizar con todas las dependencias]
 python main.py
 ```
 
