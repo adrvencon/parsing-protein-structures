@@ -23,7 +23,7 @@ Las tres estructuras utilizadas a lo largo de toda la práctica se descargaron d
 
 ## Reproducibilidad general
 
-Todo el código está escrito en Python 3.x. Las estructuras se descargan automáticamente en tiempo de ejecución, no se requieren ficheros locales.
+Todo el código está escrito en Python >= 3.10. Las estructuras se descargan automáticamente en tiempo de ejecución, no se requieren ficheros locales.
 
 ```bash
 pip install -r requirements.txt # [PENDIENTE: actualizar con todas las dependencias]
