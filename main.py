@@ -1,8 +1,13 @@
+import numpy as np
+import matplotlib.pyplot as plt
 from pdb_parser import download_pdb, parse_pdb, report
+from ca_coordinates import extract_ca_coordinates
+from visual_plots import plot_contact_map
 
 if __name__ == "__main__":
     for pdb_id in ["1RBP", "1QRE", "1DGF"]:
-        data = parse_pdb(download_pdb(pdb_id), pdb_id)
+        pdb_text = download_pdb(pdb_id)
+        data = parse_pdb(pdb_text, pdb_id)
         report(data)
         # Guardamos el texto en un archivo temporal para que extract_ca_coordinates pueda leerlo
         temp_filename = f"{pdb_id}_temp.pdb"
