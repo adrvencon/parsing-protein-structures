@@ -3,8 +3,6 @@ import re
 from collections import defaultdict
 
 # Diccionario para convertir aminoácidos de 3 letras a 1 letra.
-# Además, añadimos algunos aminoácidos no estándar (como MSE) mapeándolos a su equivalente canónico.
-# (Así lo pide el enunciado.) (Borrar, quizás, este comentario antes de entregar.)
 AA3TO1 = {
     "ALA":"A","ARG":"R","ASN":"N","ASP":"D","CYS":"C","GLN":"Q","GLU":"E",
     "GLY":"G","HIS":"H","ILE":"I","LEU":"L","LYS":"K","MET":"M","PHE":"F",
@@ -14,29 +12,14 @@ AA3TO1 = {
 }
 
 def three_to_one(res):
-    """
-    Convierte un aminoácido de 3 letras a 1 letra. Si no lo reconoce, devuelve "X" (desconocido).
-    Esto también se pide directamente en el enunciado. (Borrar, quizás, este comentario antes de entregar.)
-    """
-
     return AA3TO1.get(res.upper(), "X")
 
 def download_pdb(pdb_id):
-    """
-    Descarga el archivo PDB directamente desde la base de datos RCSB.
-    """
-
     url = f"https://files.rcsb.org/download/{pdb_id.upper()}.pdb"
     with urllib.request.urlopen(url) as r:
         return r.read().decode()
 
 def parse_pdb(pdb_text, pdb_id):
-    """
-    Parsea el archivo PDB (como texto) y extrae:
-    1. Metadatos (nombre, organismo, método, etc.).
-    2. Información estructural básica (cadenas, ligandos).
-    """
-
     info = {
         "pdb_id": pdb_id.upper(),
         "name": "", "organism": "", "method": "",
@@ -100,18 +83,10 @@ def parse_pdb(pdb_text, pdb_id):
     return info
 
 def fasta(info):
-    """
-    Genera la secuencia de aminoácidos (tipo FASTA) para cada cadena.
-    """
-    
     return {ch: "".join(three_to_one(r[1]) for r in res)
             for ch, res in info["chains"].items()}
 
 def report(info):
-    """
-    Imprime un resumen legible del PDB.
-    """
-
     p = info
     res = f"{p['resolution']} Å" if p['resolution'] else "N/A"
     print(f"{'='*60}")
