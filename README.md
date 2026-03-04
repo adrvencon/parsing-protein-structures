@@ -64,4 +64,36 @@ Estos resultados confirman que el parser maneja correctamente estructuras de una
 
 # Ejercicio 3: Mapas de Contacto
 
+## Métodos
+
+Se desarrolló el módulo `visual_plots.py` para la representación gráfica de las interacciones espaciales de las proteínas analizadas.
+
+**Criterio de contacto.** Siguiendo los estándares de análisis estructural, se define un "contacto" cuando la distancia euclídea entre los átomos Cα de dos residuos es **≤ 8.0 Å**. Este umbral permite capturar interacciones de largo alcance (como puentes de hidrógeno y contactos de van der Waals) que estabilizan el plegamiento.
+
+**Generación del mapa.** El proceso se realiza mediante la binarización de la matriz de distancias calculada en el Ejercicio 2. 
+1. Se inicializa una matriz de ceros de tamaño $N \times N$.
+2. Se asigna un valor de 1 (contacto) a las posiciones donde la distancia cumple el umbral.
+3. Se utiliza la función `imshow()` de `matplotlib.pyplot` con el mapa de colores `Greys` o `viridis` para visualizar la densidad de contactos.
+
+> **Limitación:** Al utilizar únicamente los carbonos alfa, el mapa ignora contactos específicos entre cadenas laterales que podrían ser biológicamente relevantes, subestimando potencialmente la densidad de contactos en sitios activos.
+
+## Resultados
+
+Se generaron mapas de contacto interactivos para las tres proteínas. El script `main.py` gestiona la visualización secuencial, bloqueando la ejecución hasta que el usuario cierra la ventana del gráfico actual para permitir un análisis detallado de cada estructura.
+
 # Ejercicio 4: Interpretación Estructural
+
+A partir de los patrones observados en los mapas de contacto, se identificaron los siguientes elementos de estructura secundaria y niveles de organización:
+
+| PDB ID | Elementos Identificados | Tipo de Ensamblaje | Observaciones Estructurales |
+|--------|-------------------------|--------------------|-----------------------------|
+| **1RBP** | Láminas β antiparalelas | Monómero (Cadena A) | El patrón de líneas perpendiculares a la diagonal confirma la presencia de un barril beta. |
+| **1QRE** | Láminas β y loops | Monómero (Cadena A) | Estructura compacta con un núcleo denso de láminas beta que estabilizan el sitio activo. |
+| **1DGF** | Hélices α y Láminas β | Tetrámero (A, B, C, D) | Se observan bloques de contactos intercadena (fuera de la diagonal), indicando la interfaz de unión del complejo proteico. |
+
+**Interpretación de patrones:**
+* **Diagonal principal:** Representa los contactos entre residuos vecinos en la secuencia primaria.
+* **Bandas paralelas/perpendiculares:** Indican el empaquetamiento de láminas beta.
+* **Manchas densas cerca de la diagonal:** Representan el giro cerrado característico de las hélices alfa.
+
+**Ensamblaje cuaternario.** En el caso de la **Catalasa (1DGF)**, el mapa de contacto es una herramienta clave para visualizar la interacción entre sus cuatro cadenas. Los contactos observados lejos de la diagonal principal corresponden a las superficies de contacto que permiten que la proteína funcione como un tetrámero funcional.
