@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from pdb_parser import download_pdb   # Importar la función de adriana
+from pdb_parser import download_pdb   # Importar la función de descarga de datos
 
 
 def extract_ca_coordinates(pdb_file_path):
