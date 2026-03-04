@@ -25,8 +25,8 @@ if __name__ == "__main__":
         print(f"Generando mapa de contacto para {pdb_id}...")
         print("Cierra la ventana para cargar el siguiente mapa de contacto.")
         plot_contact_map(matriz_dist, df, pdb_id, threshold=8.0)
-        plt.show(block=True)  
         plt.savefig(f"{pdb_id}_contact_map.png")  # Guardamos la figura    
+        plt.show(block=True) 
         plt.close()          # Limpiamos para la siguiente proteína
 #Fin del bucle
 print("Se han corrido todo los mapas de contacto comparativos para los PDBs indicados.")
