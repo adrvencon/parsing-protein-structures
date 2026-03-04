@@ -124,9 +124,9 @@ A partir de los patrones observados en los mapas de contacto, se identificaron l
 
 | PDB ID | Elementos Identificados | Tipo de Ensamblaje | Observaciones Estructurales |
 |--------|-------------------------|--------------------|-----------------------------|
-| **1RBP** | Láminas β antiparalelas | Monómero (Cadena A) | El patrón de líneas perpendiculares a la diagonal confirma la presencia de un barril beta. |
-| **1QRE** | Láminas β y loops | Monómero (Cadena A) | Estructura compacta con un núcleo denso de láminas beta que estabilizan el sitio activo. |
-| **1DGF** | Hélices α y Láminas β | Tetrámero (A, B, C, D) | Se observan bloques de contactos intercadena (fuera de la diagonal), indicando la interfaz de unión del complejo proteico. |
+| **1RBP** | Láminas β antiparalelas | Monómero (Cadena A) | El patrón de líneas perpendiculares a la diagonal confirma la presencia de un barril beta. Las bandas transversales indican que las hebras beta están dispuestas de forma antiparalela.|
+| **1QRE** | Láminas β y loops | Monómero (Cadena A) | Las lineas paralelas a la diagnoal princial indican que cada vuelta de la hélice beta se apila sobre la anterior, manteniendo los contactos idénticos. Ello da origen a una estructura compacta con un núcleo denso de láminas beta que estabilizan el sitio activo. |
+| **1DGF** | Hélices α y Láminas β | Tetrámero (A, B, C, D) | Se observan bloques de contactos intercadena (fuera de la diagonal), indicando la interfaz de unión del complejo proteico que permite mantener estabilidad termica. |
 
 **Interpretación de patrones:**
 * **Diagonal principal:** Representa los contactos entre residuos vecinos en la secuencia primaria.
