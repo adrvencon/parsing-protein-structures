@@ -62,6 +62,43 @@ Estos resultados confirman que el parser maneja correctamente estructuras de una
 
 # Ejercicio 2: Matriz de Distancias
 
+## Métodos
+
+Se desarrolló el módulo `ca_coordinates.py`, cuya finalidad es automatizar el procesamiento estructural de proteínas a partir de datos del **Protein Data Bank (PDB)**.  
+
+Este módulo utiliza la función de descarga implementada previamente en `pdb_parser.py` para obtener las estructuras en formato `.pdb`. A partir de estos archivos, se extraen específicamente las coordenadas de los átomos **Cα (carbono alfa)** de cada residuo. Finalmente, con las coordenadas obtenidas, se calcula la **matriz de distancias euclidianas** entre todos los pares de residuos, generando así una descripción cuantitativa de las relaciones espaciales dentro de la proteína.
+
+**Estructuras PDB utilizadas.** El script trabaja con las proteinas `1RBP`, `1QRE` y `1DGF`, que se corresponden con estructuras disponibles en el Protein Data Bank.
+
+**Extracción de coordenadas Cα.** La función lee el archivo línea a línea para seleccionar únicamente aquellas líneas que comiencen con "ATOM" y que se correspondan al átomo "CA".
+
+De estas líneas, extrae información como la cadena, el número y nombre del residuo, y las coordenadas `x`, `y` y `z`.
+
+**Cálculo de la matriz de distancias.** Se calcula la distancia euclidiana entre todos los pares de residuos:
+
+$$
+d = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2}
+$$
+
+## Resultados
+
+La ejecución del script genera, para cada estructura PDB procesada, los siguientes resultados:
+
+**Archivo PDB con la información de la proteina.** Se crea un archivo '<PDB_ID>.pdb'
+
+**Archivo de coordenadas Cα.** Se produce un archivo `<PDB_ID>_CA_coordinates.csv`, cuyos campos a rellenar son los siguientes:
+| chain | residue_number | residue_name | x | y | z |
+|-------|----------------|--------------|---|---|---|
+
+**Archivo de matriz de distancias entre residuos.** Se genera un archivo `<PDB_ID>_CA_distance_matrix.csv` que contiene una matriz cuadrada \( N $\times$ N \), donde:
+
+- N es el número de residuos
+- Cada elemento $d_{ij}$ representa la distancia euclidiana entre los residuos i y j
+- La matriz es simétrica
+- La diagonal principal contiene ceros
+
+Esta matriz describe cuantitativamente la organización espacial de la proteína, y servirá para posteriormente crear el respectivo mapa de contacto.
+
 # Ejercicio 3: Mapas de Contacto
 
 ## Métodos
