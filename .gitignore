@@ -208,4 +208,5 @@ __marimo__/
 
 # Archivos específicos de la práctica de PDB
 *.csv
+*.pdb
 *temp.pdb
